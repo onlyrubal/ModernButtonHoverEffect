@@ -1,0 +1,91 @@
+body
+{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    background-color: #151519;
+}
+
+.btn
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: none;
+    color: #ccc;
+    width: 240px;
+    height: 80px;
+    font-size: 18px;
+    border: 1px solid #c0392b;
+    border-radius: 4px;
+    transition: .6s;
+/*    This above transition causes the button to effect some animated effect when we load the html page.*/
+    overflow: hidden;
+/*    Read SLide 18 to understand overflow effect*/
+}
+
+
+/*Focusing is like when we select the particular element, then how should it react. Here we wanted that it should not show any bluish outline*/
+
+.btn:focus
+{
+    outline: none;
+}
+
+
+.btn:before
+{
+    content: '';
+    /*Means write the content behind the button , in our case it is just a white blur no text.*/
+/*    Just write content: 'Read this' and then you will understand.*/
+    display: block;
+    position: absolute;
+    background: rgba(255,255,255,0.5);
+    width: 60px;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    opacity: .5s;
+    filter: blur(30px);
+    transform: translateX(-130px) skewX(-15deg);
+    
+}
+.btn:after
+{
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(255,255,255,0.2);
+    width: 30px;
+    height: 100%;
+    left: 30px;
+    top: 0px;
+    opacity: 0;
+    filter: blur(30px);
+    transform: translateX(-100px) scaleX(-15deg);
+}
+
+.btn:hover
+{
+    background: #c0392b;
+    cursor: pointer;
+}
+
+/*When we hover over the button then only it gives the effect. It means when we hover over the button, change the below mentioned properties of .btn:before and replace with the mentioned below just like in the Awesome Search icon Effect.*/
+
+.btn:hover:before
+{
+    transform: translateX(300px) skewX(-15deg);
+    opacity: 0.6;
+    transition: 0.7s;
+}
+
+/*Same for after as it did in before.*/
+.btn:hover:after
+{
+    transform: translateX(300px) skewX(-15deg);
+    opacity: 1;
+    transition: 0.7s;
+}
+
